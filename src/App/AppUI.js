@@ -7,6 +7,8 @@ import { TodoItem } from "../TodoItem";
 import { TodoForm } from "../TodoForm";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
+import { CreateColorPalette } from "../CreateColorPalette";
+import { InputColor } from "../InputColor";
 
 function AppUI() {
   const {
@@ -19,10 +21,11 @@ function AppUI() {
     setOpenModal,
     setEnEdit,
     setTextEdit,
+    changeColor,
   } = React.useContext(TodoContext);
 
   return (
-    <React.Fragment>
+    <>
       <TodoCounter />
       <TodoSearch />
 
@@ -42,7 +45,6 @@ function AppUI() {
               setTextEdit(todo.text);
               setEnEdit(true);
               setOpenModal(true);
-              //editTodo(todo.text);
             }}
           />
         ))}
@@ -54,8 +56,15 @@ function AppUI() {
         </Modal>
       )}
 
+      {changeColor && (
+        <Modal>
+          <InputColor />
+        </Modal>
+      )}
+
       <CreateTodoButton setOpenModal={setOpenModal} />
-    </React.Fragment>
+      <CreateColorPalette />
+    </>
   );
 }
 

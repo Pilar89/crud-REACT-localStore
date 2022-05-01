@@ -4,7 +4,6 @@ import "./TodoForm.css";
 
 function TodoForm() {
   const [newTodoValue, setNewTodoValue] = React.useState("");
-  const [isEmptyText, setIsEmptyText] = React.useState(true);
   const [alert, setAlert] = React.useState(false);
 
   const { addTodo, setOpenModal, enEdit, setEnEdit, editTodo, textEdit } =
@@ -12,9 +11,6 @@ function TodoForm() {
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
-    if (newTodoValue != "") {
-      setIsEmptyText(false);
-    }
   };
   const onCancel = () => {
     setOpenModal(false);
@@ -22,8 +18,9 @@ function TodoForm() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    if (isEmptyText) {
+    if (newTodoValue === "") {
       setAlert(true);
+
       return;
     }
     if (!enEdit) {
@@ -34,7 +31,7 @@ function TodoForm() {
     }
     setOpenModal(false);
     setNewTodoValue("");
-    setIsEmptyText(true);
+    console.log("valor: " + newTodoValue);
   };
 
   return (

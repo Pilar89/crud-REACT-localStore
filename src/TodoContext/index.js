@@ -15,6 +15,7 @@ function TodoProvider(props) {
   const [openModal, setOpenModal] = React.useState(false);
   const [enEdit, setEnEdit] = React.useState(false);
   const [textEdit, setTextEdit] = React.useState("");
+  const [changeColor, setChangeColor] = React.useState(false);
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -82,6 +83,8 @@ function TodoProvider(props) {
         setEnEdit,
         textEdit,
         setTextEdit,
+        changeColor,
+        setChangeColor,
       }}
     >
       {props.children}
