@@ -4,7 +4,8 @@ import "./TodoForm.css";
 
 function TodoForm() {
   const [newTodoValue, setNewTodoValue] = React.useState("");
-  const { addTodo, setOpenModal } = React.useContext(TodoContext);
+  const { addTodo, setOpenModal, enEdit, setEnEdit, editTodo, textEdit } =
+    React.useContext(TodoContext);
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
@@ -14,7 +15,12 @@ function TodoForm() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    addTodo(newTodoValue);
+    if (!enEdit) {
+      addTodo(newTodoValue);
+    } else {
+      editTodo(textEdit, newTodoValue);
+      setEnEdit(false);
+    }
     setOpenModal(false);
   };
 

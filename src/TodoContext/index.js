@@ -1,6 +1,4 @@
 import React from "react";
-import { TodoForm } from "../TodoForm";
-import { Modal } from "../Modal";
 
 import { useLocalStorage } from "./useLocalStorage";
 
@@ -15,6 +13,8 @@ function TodoProvider(props) {
   } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false);
+  const [enEdit, setEnEdit] = React.useState(false);
+  const [textEdit, setTextEdit] = React.useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -54,14 +54,11 @@ function TodoProvider(props) {
     saveTodos(newTodos);
   };
 
-  const editTodo = (text) => {
-    console.log("text " + text);
+  const editTodo = (text, valor) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     console.log(todos[todoIndex]);
-    console.log("todos " + todos);
-    console.log("indice " + todoIndex);
     const newTodos = [...todos];
-    newTodos[todoIndex].text = "Maria";
+    newTodos[todoIndex].text = valor;
     saveTodos(newTodos);
   };
 
@@ -81,6 +78,10 @@ function TodoProvider(props) {
         editTodo,
         openModal,
         setOpenModal,
+        enEdit,
+        setEnEdit,
+        textEdit,
+        setTextEdit,
       }}
     >
       {props.children}
