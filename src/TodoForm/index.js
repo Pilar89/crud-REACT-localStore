@@ -31,7 +31,6 @@ function TodoForm() {
     }
     setOpenModal(false);
     setNewTodoValue("");
-    console.log("valor: " + newTodoValue);
   };
 
   return (

@@ -63,7 +63,6 @@ function TodoProvider(props) {
 
   const editTodo = (text, valor) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
-    console.log(todos[todoIndex]);
     const newTodos = [...todos];
     newTodos[todoIndex].text = valor;
     saveTodos(newTodos);
