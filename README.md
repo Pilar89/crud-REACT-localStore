@@ -22,20 +22,20 @@
 
 
 
-#### 4) Se agrega opción que  permite desdeleccionar una tarea marcada como hecha.
-##### Nota: Se puede dar el caso que usuario marque por error una tarea pendiente como hecha.
+#### 4) Se agrega opción que  permite deseleccionar una tarea marcada como hecha.
+##### Nota: Se puede dar el caso que el usuario marque por error una tarea pendiente como hecha.
 
 ![](check.gif)
 
 
-#### 5) Se soluciona Warning que se presenta al ingresar dos actividades iguales, como se muestra en la siguiente imagen. Esta situación se da debido a que se tiene una misma “key” para todas las actividades agregadas (key={todo.text}), y react necesita una “ key” individual, para poder diferenciar los componentes repetidos.
+#### 5) Se soluciona Warning que se presenta al ingresar dos actividades iguales, como se muestra en la siguiente imagen. Esta situación se da debido a que se tiene una “key” repetida para las actividades agregadas (key={todo.text}), y react necesita una “key” individual, para poder diferenciar los componentes repetidos.
 
 
 
 ![img.png](img.png)
 
 
-#### Solución: se agreaga una "key" para cada actividad.
+#### Solución: se agreaga una "key" que no se repite para cada actividad.
 
 ![img_1.png](img_1.png)
 
