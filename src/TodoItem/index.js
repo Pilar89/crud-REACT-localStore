@@ -18,7 +18,8 @@ function TodoItem(props) {
       </span>
 
       <span className="Icon Icon.edit" onClick={props.onEdit}>
-        Edit
+        <img src="curso-intro-react/edit1.png" className="Icon Icon.edit"></img>
+        <h6>Edit</h6>
       </span>
     </li>
   );
