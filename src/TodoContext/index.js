@@ -38,12 +38,18 @@ function TodoProvider(props) {
       completed: false,
       text,
     });
+
     saveTodos(newTodos);
   };
 
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
+    if (newTodos[todoIndex].completed) {
+      newTodos[todoIndex].completed = false;
+      saveTodos(newTodos);
+      return;
+    }
     newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
   };
