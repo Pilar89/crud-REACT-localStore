@@ -34,9 +34,9 @@ function AppUI() {
         {loading && <p>Estamos cargando, no desesperes...</p>}
         {!loading && !searchedTodos.length && <p>¡Crea tu primer TODO!</p>}
 
-        {searchedTodos.map((todo) => (
+        {searchedTodos.map((todo, index) => (
           <TodoItem
-            key={todo.text}
+            key={index}
             text={todo.text}
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}

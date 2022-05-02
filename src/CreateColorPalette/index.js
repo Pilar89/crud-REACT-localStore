@@ -16,8 +16,4 @@ function CreateColorPalette(props) {
   );
 }
 
-function Paleta() {
-  return "hola";
-}
-
 export { CreateColorPalette };
